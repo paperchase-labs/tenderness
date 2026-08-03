@@ -40,4 +40,4 @@ class _UnsetParamType(Enum):
 _UNSET_PARAM: Final = _UnsetParamType.UNSET
 type UnsetParam = Literal[_UnsetParamType.UNSET]
 type Settable[T] = T | UnsetParam
-type SettableOrNone[T] = T | None | UnsetParam
+type SettableOrNone[T] = T | UnsetParam | None
