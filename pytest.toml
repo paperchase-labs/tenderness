@@ -8,6 +8,13 @@ markers = [
   "eternal_contract: mark contract tests",
 ]
 
+filterwarnings = [
+  # PyGObject's own overrides proxy triggers this internally on import.
+  # https://gitlab.gnome.org/GNOME/pygobject/-/work_items/757
+  # https://gitlab.gnome.org/GNOME/pygobject/-/merge_requests/545
+  "ignore:GLib.unix_signal_add_full is deprecated:DeprecationWarning",
+]
+
 log_cli = true
 log_cli_level = "INFO"
 log_cli_format = "%(asctime)s | %(name)s | %(module)s | %(funcName)s | %(levelname)s | %(message)s"

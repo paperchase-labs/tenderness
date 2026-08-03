@@ -55,7 +55,7 @@ requires-python = ">=3.12"
 # Dependencies
 # ============================================================================
 dependencies = [
-  "PyGObject < 3.52.0",  # https://github.com/matplotlib/matplotlib/issues/29732 # TODO: create issue
+  "PyGObject",
   "lxml",
   "matplotlib",
   "numpy >= 2.0.0",
