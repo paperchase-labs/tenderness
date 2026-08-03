@@ -76,9 +76,9 @@ dev = [
   { include-group = "tools" },
   { include-group = "typing" }
 ]
-docs = ["zensical==0.0.43"]
-lint = ["pydoclint==0.8.6", "ruff"]
-test = ["coverage", "pytest >= 9.0", "pytest-order"]
+docs = ["zensical==0.0.52"]
+lint = ["pydoclint==0.9.1", "ruff"]
+test = ["coverage", "pytest-order", "pytest >= 9.0"]
 tools = ["pre-commit"]
 typing = ["mypy", "pygobject-stubs", "types-requests"]
 
@@ -86,21 +86,8 @@ typing = ["mypy", "pygobject-stubs", "types-requests"]
 # Build System
 # ============================================================================
 [build-system]
-requires = ["uv_build>=0.11.4,<0.12.0"]
+requires = ["uv_build>=0.12.1,<0.13.0"]
 build-backend = "uv_build"
-
-# ============================================================================
-# uv Build Backend
-# ============================================================================
-[tool.uv.build-backend]
-source-exclude = [
-  "**/.mypy_cache/**",
-  ".venv/**",
-  ".tox/**",
-  "development/**",
-  "site/**",
-  "tenderness_tests_output/**",
-]
 
 # ============================================================================
 # Pydoclint
@@ -131,3 +118,16 @@ should-document-star-arguments = true
 omit-stars-when-documenting-varargs = false
 check-style-mismatch = true
 check-arg-defaults = false
+
+# ============================================================================
+# uv Build Backend
+# ============================================================================
+[tool.uv.build-backend]
+source-exclude = [
+  "**/.mypy_cache/**",
+  ".venv/**",
+  ".tox/**",
+  "development/**",
+  "site/**",
+  "tenderness_tests_output/**",
+]
