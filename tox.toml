@@ -6,7 +6,22 @@ env_list = ["3.12", "3.13", "3.14", "lint", "typing"]
 runner = "uv-venv-lock-runner"
 dependency_groups = ["test"]
 description = "run the test suite with pytest"
-commands = [["pytest", "--output-path=tenderness_tests_output/{env_name}", { replace = "posargs", default = ["tests"], extend = true }]]
+
+# ==========================
+# Environment variables (DYLD_FALLBACK_LIBRARY_PATH) for macOS to find Homebrew-installed libraries
+# ==========================
+# macOS: dyld no longer searches /usr/local/lib by default, so GObject-Introspection
+# typelibs (which reference libglib/libgobject by bare filename) fail to dlopen unless
+# Homebrew's lib dir is added explicitly. Harmless no-op on Linux.
+set_env = { DYLD_FALLBACK_LIBRARY_PATH = "/usr/local/lib:/opt/homebrew/lib" }
+
+commands = [
+  [
+    "pytest",
+    "--output-path=tenderness_tests_output/{env_name}",
+    { replace = "posargs", default = ["tests"], extend = true }
+  ]
+]
 
 [env.lint]
 runner = "uv-venv-lock-runner"
@@ -14,8 +29,8 @@ dependency_groups = ["lint"]
 description = "run linters"
 default_base_python = ["3.13"]
 commands = [
-    ["ruff", "check", { replace = "posargs", default = ["."], extend = true }],
-    ["pydoclint", "src"],
+  ["ruff", "check", { replace = "posargs", default = ["."], extend = true }],
+  ["pydoclint", "src"],
 ]
 
 [env.typing]
