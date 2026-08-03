@@ -26,14 +26,14 @@ if TYPE_CHECKING:
 gi.require_version("Pango", "1.0")
 
 
-from gi.repository import Pango  # noqa: E402
+from gi.repository import GObject, Pango  # noqa: E402
 
 
 class PangoEnumCoerce:
     """Utilities for building lowercase string-to-enum maps and coercing values for Pango enums."""
 
     @staticmethod
-    def build_map[T](enum_type: type[T], exclude: frozenset[str] = frozenset()) -> dict[str, T]:
+    def build_map[T: GObject.GEnum](enum_type: type[T], exclude: frozenset[str] = frozenset()) -> dict[str, T]:
         """Build a lowercase name-to-value map from a Pango enum type, excluding specified members.
 
         Parameters
@@ -49,7 +49,7 @@ class PangoEnumCoerce:
             Mapping of lowercase member name to enum value.
         """
         result = {}
-        for member in enum_type.__enum_values__.values():  # type: ignore[attr-defined]
+        for member in enum_type:
             nick = member.value_nick.lower()
             if nick not in exclude:
                 result[nick] = member
@@ -130,7 +130,7 @@ class PangoEnumMap:
     Style = PangoEnumCoerce.build_map(enum_type=Pango.Style)
     Variant = PangoEnumCoerce.build_map(enum_type=Pango.Variant)
     Weight = PangoEnumCoerce.build_map(enum_type=Pango.Weight)
-    FontColor = PangoEnumCoerce.build_map(enum_type=Pango.FontColor)  # type: ignore[attr-defined]
+    FontColor = PangoEnumCoerce.build_map(enum_type=Pango.FontColor)
 
     # Pango.Context
     Direction = PangoEnumCoerce.build_map(

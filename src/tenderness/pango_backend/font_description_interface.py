@@ -96,7 +96,7 @@ class FontDescriptionInterfaceParameters(BaseInterfaceParameters):
     size_device_units: Settable[float] = field(default=_UNSET_PARAM)
     size: Settable[float] = field(default=_UNSET_PARAM)
 
-    color: Settable[Pango.FontColor | FontColorStr] = field(default=_UNSET_PARAM)  # type: ignore[name-defined]
+    color: Settable[Pango.FontColor | FontColorStr] = field(default=_UNSET_PARAM)
 
     def _validate(self, proposed: dict[str, Any]) -> None:
         for pango_field, device_field in self._CONFLICTING_PAIRS:
@@ -155,7 +155,7 @@ class FontDescriptionInterface(BaseInterface):
         Self
             ``FontDescriptionInterface`` backed by a new empty font description.
         """
-        return cls(font_description=Pango.FontDescription(), name=name)
+        return cls(font_description=Pango.FontDescription(), name=name)  # type: ignore[no-untyped-call]
 
     @classmethod
     def from_string(cls, font_desc_str: str, name: str = "") -> Self:
@@ -203,7 +203,7 @@ class FontDescriptionInterface(BaseInterface):
     # Properties with getters and setters
     # ------------------------------------------------------------------
     @property
-    def color(self) -> Pango.FontColor:  # type: ignore[name-defined]
+    def color(self) -> Pango.FontColor:
         """Font color.
 
         Returns
@@ -215,10 +215,10 @@ class FontDescriptionInterface(BaseInterface):
         -----
         Controls matching against fonts with or without color glyphs.
         """
-        return self.font_description.get_color()  # type: ignore[attr-defined]
+        return self.font_description.get_color()
 
     @color.setter
-    def color(self, color: Pango.FontColor) -> None:  # type: ignore[name-defined]
+    def color(self, color: Pango.FontColor) -> None:
         """Set the font color.
 
         Parameters
@@ -226,7 +226,7 @@ class FontDescriptionInterface(BaseInterface):
         color
             Color to apply.
         """
-        self.font_description.set_color(color)  # type: ignore[attr-defined]
+        self.font_description.set_color(color)
 
     @property
     def family(self) -> str | None:

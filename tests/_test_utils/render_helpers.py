@@ -124,7 +124,7 @@ def _testutil_simple_text(
     # color black text
     cairo_context.set_source_rgb(*_TESTUTIL_SOLID_COLOR_BLACK.color.rgb)
 
-    font_desc = Pango.FontDescription()
+    font_desc = Pango.FontDescription()  # type: ignore[no-untyped-call]
     font_desc.set_family(family_name)
     font_desc.set_size(Pango.units_from_double(font_size))
     layout.set_font_description(font_desc)
