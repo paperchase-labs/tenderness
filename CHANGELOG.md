@@ -8,13 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- `[docs]` Add install validation and macOS troubleshooting sections.
-- `[document_pipeline]` Allow `DocumentConfig.block_spec` to accept a `list[BlockPosition]` of pre-computed positions, bypassing the flexbox engine.
-- `[tests]` Add test coverage for `DocumentSetupHelpers.resolve_block_positions` across the unset, `MinimalFlexNode`, and `list[BlockPosition]` code paths.
+-
 
 ### Changed
-- `[deps]` Remove the `PyGObject < 3.52.0` pin.
-- `[pango_backend]` Fix compatibility with PyGObject 3.56+.
+- 
 
 ### Deprecated
 -
@@ -28,6 +25,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Security
 -
 
+## [0.3.0] - 2026-08-04
+
+### Added
+- `[docs]` Add install validation and macOS troubleshooting sections.
+- `[document_pipeline]` Allow `DocumentConfig.block_spec` to accept a `list[BlockPosition]` of pre-computed positions, bypassing the flexbox engine.
+- `[tests]` Add test coverage for `DocumentSetupHelpers.resolve_block_positions` across the unset, `MinimalFlexNode`, and `list[BlockPosition]` code paths.
+
+### Changed
+- `[deps]` Remove the `PyGObject < 3.52.0` pin.
+- `[pango_backend]` Fix compatibility with PyGObject 3.56+.
 
 
 ## [0.2.1] - 2026-06-22
@@ -64,7 +71,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Initial public release
 
-[Unreleased]: https://github.com/paperchase-labs/tenderness/compare/v0.2.1...HEAD
+[Unreleased]: https://github.com/paperchase-labs/tenderness/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/paperchase-labs/tenderness/compare/v0.2.1...v0.3.0
 [0.2.1]: https://github.com/paperchase-labs/tenderness/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/paperchase-labs/tenderness/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/paperchase-labs/tenderness/releases/tag/v0.1.0
