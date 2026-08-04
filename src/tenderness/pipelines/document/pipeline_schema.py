@@ -61,14 +61,14 @@ class DocumentConfig:
     global_margin
         Margin applied around the content area.
     block_spec
-        Block arrangement specification; resolves to block positions.
+        Block arrangement specification; resolves to block positions. Either a :class:`MinimalFlexNode` tree resolved by the flexbox engine, or a ``list[BlockPosition]`` of pre-computed positions used as-is. Positions are absolute document coordinates, same as a resolved flex tree's - they are not offset by ``global_margin``.
     background_spec
         Background fill pattern.
     """
 
     surface_config: SurfaceConfig
     global_margin: Settable[Margin] = _UNSET_PARAM
-    block_spec: Settable[MinimalFlexNode] = _UNSET_PARAM
+    block_spec: Settable[MinimalFlexNode | list[BlockPosition]] = _UNSET_PARAM
     background_spec: Settable[PatternColorSpec] = _UNSET_PARAM
 
 

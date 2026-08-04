@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - `[docs]` Add install validation and macOS troubleshooting sections.
+- `[document_pipeline]` Allow `DocumentConfig.block_spec` to accept a `list[BlockPosition]` of pre-computed positions, bypassing the flexbox engine.
+- `[tests]` Add test coverage for `DocumentSetupHelpers.resolve_block_positions` across the unset, `MinimalFlexNode`, and `list[BlockPosition]` code paths.
 
 ### Changed
 - `[deps]` Remove the `PyGObject < 3.52.0` pin.

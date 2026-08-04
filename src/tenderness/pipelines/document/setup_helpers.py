@@ -115,6 +115,9 @@ class DocumentSetupHelpers:
     ) -> list[BlockPosition]:
         """Resolve block positions from ``config.block_spec`` within ``content_rect``.
 
+        If ``config.block_spec`` is a ``list[BlockPosition]``, it is used as-is,
+        bypassing the flexbox engine.
+
         Parameters
         ----------
         minimal_flexbox_engine
@@ -129,7 +132,9 @@ class DocumentSetupHelpers:
         list[BlockPosition]
             Computed positions for each block.
         """
-        if config.block_spec is not _UNSET_PARAM:
+        if isinstance(config.block_spec, list):
+            block_positions = config.block_spec
+        elif config.block_spec is not _UNSET_PARAM:
             result_tree = minimal_flexbox_engine.resolve_tree(
                 container=content_rect,
                 node=config.block_spec,
