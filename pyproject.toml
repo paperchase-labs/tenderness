@@ -3,7 +3,7 @@
 # ============================================================================
 [project]
 name = "tenderness"
-description = "Text rendering library for synthetic data generation"
+description = "Text rendering library with pipelines for synthetic document generation"
 readme = "README.md"
 license = "Apache-2.0"
 license-files = ["LICEN[CS]E*", "NOTICE*"]
@@ -24,6 +24,7 @@ classifiers = [
 keywords = [
   "OCR",
   "computer vision",
+  "data generation",
   "deep learning",
   "document generation",
   "document segmentation",

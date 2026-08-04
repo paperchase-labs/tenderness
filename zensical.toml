@@ -1,6 +1,6 @@
 [project]
 site_name = "tenderness"
-site_description = "tenderness is a fast library for synthetic, deterministic document rendering from text and images"
+site_description = "tenderness is a fast library for text rendering and synthetic document generation, with a built-in pipeline you can use as-is or extend"
 site_author = "Pavel Stepachev"
 
 site_url = "https://paperchase-labs.github.io/tenderness/"
