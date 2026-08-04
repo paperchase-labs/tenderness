@@ -73,7 +73,13 @@ from tenderness.cairo_backend.color_patterns import SolidColorSpec
 from tenderness.cairo_backend.surface_config_manager import SurfaceConfigManager
 from tenderness.colors.color_selector import ColorSelector
 from tenderness.pango_backend.font_description_interface import FontDescriptionInterfaceParameters
-from tenderness.pipelines.document import DocumentBlocksConfig, DocumentConfig, DocumentRenderPipeline, TextBlock, TextStyle
+from tenderness.pipelines.document import (
+    DocumentBlocksConfig,
+    DocumentConfig,
+    DocumentRenderPipeline,
+    TextBlock,
+    TextStyle,
+)
 
 # select colors
 color_selector = ColorSelector()
@@ -81,7 +87,10 @@ white = SolidColorSpec(color=color_selector.by_names(["white"])[0])
 black = SolidColorSpec(color=color_selector.by_names(["black"])[0])
 
 # select surface (image, pdf, svg, etc.)
-img_surface_config = SurfaceConfigManager().create_image_surface_config(width=400, height=100)
+img_surface_config = SurfaceConfigManager().create_image_surface_config(
+    width=400,
+    height=100,
+)
 
 # create document config and blocks config
 doc_config = DocumentConfig(surface_config=img_surface_config, background_spec=white)
@@ -101,7 +110,10 @@ doc_blocks_config = DocumentBlocksConfig(
 # create pipeline and render document
 pipeline = DocumentRenderPipeline()
 setup_result = pipeline.setup(config=doc_config)
-render_result = pipeline.render(blocks_config=doc_blocks_config, setup_result=setup_result)  # noqa: F841
+render_result = pipeline.render(
+    blocks_config=doc_blocks_config,
+    setup_result=setup_result,
+)
 
 # save the rendered document to a file
 pipeline.save_as_file(
