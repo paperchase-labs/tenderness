@@ -126,3 +126,15 @@ pipeline.save_as_file(
 ```
 
 You can find the runnable version at [`scripts/mini_example.py`](scripts/mini_example.py), and more examples over at [tenderness-examples](https://github.com/paperchase-labs/tenderness-examples). If you run into missing system libraries (Cairo, Pango, PyGObject), check the [install guide](https://paperchase-labs.github.io/tenderness/setup/install/).
+
+
+## Citation
+
+```bibtex
+@software{tenderness,
+  author  = {Stepachev, Pavel},
+  title   = {tenderness: A fast library for synthetic, deterministic document and text rendering},
+  url     = {https://github.com/paperchase-labs/tenderness},
+  year    = {2026}
+}
+```
