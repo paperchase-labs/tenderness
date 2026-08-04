@@ -8,13 +8,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
--
+- `[docs]` Add install validation and macOS troubleshooting sections.
 
 ### Changed
+- `[deps]` Remove the `PyGObject < 3.52.0` pin.
+- `[pango_backend]` Fix compatibility with PyGObject 3.56+.
+
+### Deprecated
+-
+
+### Removed
 -
 
 ### Fixed
 -
+
+### Security
+-
+
+
 
 ## [0.2.1] - 2026-06-22
 
